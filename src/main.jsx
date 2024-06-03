@@ -9,13 +9,15 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import Home from "./pages/Home.jsx";
-import Signup from "./pages/Signup.jsx";
+import Login from "./pages/Login.jsx";
+import ForgotPassword from "./pages/ForgotPassword.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route path="/" element={<Home />} />
-      <Route path="/signup" element={<Signup />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
     </Route>
   )
 );
