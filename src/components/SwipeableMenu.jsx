@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSpring, animated } from "react-spring";
 import { useGesture } from "@use-gesture/react";
+import manualVersion from "../assets/ABPAS_II_USER _MANUAL_ VERSION_3.2.pdf";
+import bvnRule from "../assets/2012_06_01_BVN_rule_2012.pdf";
 
 const SwipeableMenu = ({ isOpen, onClose }) => {
   const menuRef = useRef();
@@ -75,13 +77,13 @@ const SwipeableMenu = ({ isOpen, onClose }) => {
             </a>
           </li>
           <li>
-            <a href="/path/to/pdf2.pdf" download>
-              PDF 2
+            <a href={bvnRule} target="_blank">
+              BVN 2012
             </a>
           </li>
           <li>
-            <a href="/path/to/pdf3.pdf" download>
-              PDF 3
+            <a href={manualVersion} target="_blank">
+              ABPAS II USER MANUAL VERSION 3.2
             </a>
           </li>
         </ul>
