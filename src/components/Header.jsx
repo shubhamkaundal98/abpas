@@ -33,7 +33,7 @@ function Header() {
         </div>
         <div className="bg-black h-8 w-[1px]"></div>
         <div
-          onClick={() => navigate("/signup")}
+          onClick={() => navigate("/login")}
           className="text-[#0288d1] hover:underline hover:text-blue-900 hover:cursor-pointer flex items-center gap-1"
         >
           <span>Sign in</span>

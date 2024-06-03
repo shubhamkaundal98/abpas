@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { IoEye } from "react-icons/io5";
+import { IoEyeOff } from "react-icons/io5";
 
 function InputField({ type, placeholder }) {
   const [isFocused, setIsFocused] = useState(false);
@@ -45,7 +47,11 @@ function InputField({ type, placeholder }) {
           onClick={togglePasswordVisibility}
           className="absolute right-0 top-2 text-gray-600 focus:outline-none"
         >
-          {showPassword ? "Hide" : "Show"}
+          {showPassword ? (
+            <IoEyeOff className="text-[#0288d1]" />
+          ) : (
+            <IoEye className="text-[#0288d1]" />
+          )}
         </button>
       )}
     </div>
