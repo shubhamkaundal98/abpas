@@ -13,7 +13,7 @@ function Home() {
   const handleOpenMenu = () => setIsMenuOpen(true);
   const handleCloseMenu = () => setIsMenuOpen(false);
   return (
-    <div className="flex flex-col items-center gap-12 my-20">
+    <div className="flex flex-col items-center mt-20 mb-5">
       <div className="flex flex-col gap-10">
         <p className="text-center text-lg mx-72 font-normal">
           "Online Building Permission in Madhya Pradesh is done through ABPAS
@@ -26,7 +26,7 @@ function Home() {
           ऑनलाइन ड्राइंग / मानचित्र की स्क्रूटनी पारदर्शी रूप से की जाती है | "
         </p>
       </div>
-      <div>
+      <div className="my-12">
         <p className="text-center text-lg mx-52 text-[#ff1300] font-bold">
           "105 वर्गमीटर तक के आवासीय भूखंडो के लिए तुरंत/डीम्ड स्वीकृति के नए
           नियमों के अनुसार ऑनलाइन व्यवस्था लागू कर दी गई है, कृपया इस सुविधा का
@@ -68,7 +68,7 @@ function Home() {
           bottomHeading={"Layout Sketch"}
         />
       </div>
-      <div>
+      <div className="flex flex-col items-end w-full pr-52">
         <div className="flex justify-end gap-10">
           <p>
             Toll Free Number/टोल फ्री नंबर :{" "}
@@ -84,7 +84,7 @@ function Home() {
           </p>
         </div>
         <div>
-          <p>
+          <p className="font-medium">
             T&CP Layout Approval for Bhopal,Jabalpur,Gwalior & Indore:
             Click---&#62;{" "}
             <a
