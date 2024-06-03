@@ -1,6 +1,6 @@
 import Form from "../components/Form";
 
-function Signup() {
+function Login() {
   return (
     <div className="h-[80vh] mt-36 flex justify-around">
       <div className="w-1/4">
@@ -20,4 +20,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Login;
