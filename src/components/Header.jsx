@@ -1,5 +1,7 @@
 import logo from "../assets/logo.png";
 import { useNavigate } from "react-router-dom";
+import { PiUserCircleFill } from "react-icons/pi";
+import { FaHome } from "react-icons/fa";
 
 function Header() {
   const navigate = useNavigate();
@@ -21,19 +23,22 @@ function Header() {
           Urban Development and Housing Department - MADHYA PRADESH
         </div>
       </div>
-      <div className="flex gap-2">
-        <button
+      <div className="flex gap-2 items-center">
+        <div
           onClick={() => navigate("/")}
-          className="text-[#0288d1] hover:underline hover:text-blue-900"
+          className="text-[#0288d1] hover:underline hover:text-blue-900 hover:cursor-pointer flex items-center gap-1"
         >
-          Home
-        </button>
-        <button
+          <span>Home</span>
+          <FaHome className="text-[#0288d1]" />
+        </div>
+        <div className="bg-black h-8 w-[1px]"></div>
+        <div
           onClick={() => navigate("/signup")}
-          className="text-[#0288d1] hover:underline hover:text-blue-900"
+          className="text-[#0288d1] hover:underline hover:text-blue-900 hover:cursor-pointer flex items-center gap-1"
         >
-          Sign in(logo)
-        </button>
+          <span>Sign in</span>
+          <PiUserCircleFill className="text-[#0288d1]" />
+        </div>
       </div>
     </div>
   );
