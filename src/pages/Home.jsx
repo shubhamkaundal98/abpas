@@ -6,8 +6,10 @@ import model from "../assets/model.png";
 import payment from "../assets/payment.png";
 import { useState } from "react";
 import SwipeableMenu from "../components/SwipeableMenu";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleOpenMenu = () => setIsMenuOpen(true);
@@ -46,7 +48,7 @@ function Home() {
           topHeading={"Downloads"}
           topSubheading={"User Manual, Checklist and forms"}
           bottomHeading={"SLA TimeLine"}
-          handleOpenMenu={handleOpenMenu}
+          topOpenFunction={handleOpenMenu}
         />
         <SwipeableMenu isOpen={isMenuOpen} onClose={handleCloseMenu} />
         <Enquiry
@@ -54,12 +56,14 @@ function Home() {
           topHeading={"Online Payment"}
           topSubheading={"Think Smarter, Do online payment."}
           bottomHeading={"EoDBReport"}
+          bottomOpenFunction={() => navigate("/EoDBReport")}
         />
         <Enquiry
           image={citizens}
           topHeading={"Citizen Search"}
           topSubheading={"Track your Proposal File status."}
           bottomHeading={"FAQ"}
+          bottomOpenFunction={() => navigate("/FAQDetails")}
         />
         <Enquiry
           image={model}

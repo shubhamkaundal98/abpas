@@ -8,9 +8,14 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import Home from "./pages/Home.jsx";
-import Login from "./pages/Login.jsx";
-import ForgotPassword from "./pages/ForgotPassword.jsx";
+
+import {
+  Home,
+  Login,
+  ForgotPassword,
+  FAQDetails,
+  EoDBReport,
+} from "./pages/pages.js";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,6 +23,8 @@ const router = createBrowserRouter(
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/FAQDetails" element={<FAQDetails />} />
+      <Route path="/EoDBReport" element={<EoDBReport />} />
     </Route>
   )
 );

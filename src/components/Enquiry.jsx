@@ -5,14 +5,15 @@ function Enquiry({
   topHeading,
   topSubheading,
   bottomHeading,
-  handleOpenMenu,
+  topOpenFunction,
+  bottomOpenFunction,
 }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div className="flex flex-col gap-2 text-white w-56">
       <div
-        onClick={handleOpenMenu}
+        onClick={topOpenFunction}
         className={`hover:cursor-pointer overflow-hidden`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -30,7 +31,10 @@ function Enquiry({
           <p className="text-center text-sm">{topSubheading}</p>
         </div>
       </div>
-      <div className="bg-[#0288d1] hover:cursor-pointer">
+      <div
+        onClick={bottomOpenFunction}
+        className="bg-[#0288d1] hover:cursor-pointer"
+      >
         <p className="text-center">{bottomHeading}</p>
       </div>
     </div>
