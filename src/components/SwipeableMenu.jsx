@@ -57,7 +57,7 @@ const SwipeableMenu = ({ isOpen, onClose }) => {
   return (
     <animated.div
       ref={menuRef}
-      className="fixed bottom-0 left-0 right-0 h-[90vh] bg-white shadow-lg"
+      className="z-10 fixed bottom-0 left-0 right-0 h-[90vh] bg-white shadow-lg"
       style={{
         transform: y.to((y) => `translateY(${y}%)`),
       }}
