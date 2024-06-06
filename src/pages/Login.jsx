@@ -1,10 +1,10 @@
-import Form from "../components/Form";
+import LoginForm from "../components/LoginForm";
 
 function Login() {
   return (
     <div className="h-[80vh] mt-36 flex justify-around">
       <div className="w-1/4">
-        <Form />
+        <LoginForm />
       </div>
       <div className="w-[20%] flex flex-col gap-2">
         <h1 className="text-3xl font-normal">Why Login?</h1>
