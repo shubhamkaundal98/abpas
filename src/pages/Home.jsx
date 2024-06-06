@@ -7,15 +7,85 @@ import payment from "../assets/payment.png";
 import { useState } from "react";
 import SwipeableMenu from "../components/SwipeableMenu";
 import { useNavigate } from "react-router-dom";
+import MuiModal from "../components/MuiModal";
+import OnlinePaymentForm from "../components/OnlinePaymentForm";
+import ModelDrawingForm from "../components/ModelDrawingForm";
+import SignupForm from "../components/SignupForm";
+import CitizenSearchForm from "../components/CitizenSearchForm";
 
 function Home() {
   const navigate = useNavigate();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Sign Up Modal
+
+  const [signupModal, setSignupModal] = useState(false);
+  const handleOpenSignupModal = () => setSignupModal(true);
+  const handleCloseSignupModal = () => setSignupModal(false);
+
+  //Download Pdf Slider
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleOpenMenu = () => setIsMenuOpen(true);
   const handleCloseMenu = () => setIsMenuOpen(false);
+
+  // Online Payment Modal
+
+  const [onlinePaymentModal, setOnlinePaymentModal] = useState(false);
+  const handleOpenOnlinePaymentModal = () => setOnlinePaymentModal(true);
+  const handleCloseOnlinePaymentModal = () => setOnlinePaymentModal(false);
+
+  // Citizen Search Modal
+
+  const [citizenSearchModal, setCitizenSearchModal] = useState(false);
+  const handleOpenCitizenSearchModal = () => setCitizenSearchModal(true);
+  const handleCloseCitizenSearchModal = () => setCitizenSearchModal(false);
+
+  // Model Drawing Modal
+
+  const [modelDrawingModal, setModelDrawingModal] = useState(false);
+  const handleOpenModelDrawingModal = () => setModelDrawingModal(true);
+  const handleCloseModelDrawingModal = () => setModelDrawingModal(false);
+
   return (
     <div className="flex flex-col items-center mt-20 mb-5">
+      {/* Sign Up Modal */}
+      <MuiModal
+        open={signupModal}
+        handleClose={handleCloseSignupModal}
+        modelHeading={"Sign Up"}
+        className={"w-1/4"}
+      >
+        <SignupForm />
+      </MuiModal>
+      {/* Download Pdf Slider */}
+      <SwipeableMenu isOpen={isMenuOpen} onClose={handleCloseMenu} />
+      {/* Online Payment Modal */}
+      <MuiModal
+        open={onlinePaymentModal}
+        handleClose={handleCloseOnlinePaymentModal}
+        modelHeading={"ABPAS-II - Online Payment"}
+        className={"w-2/5"}
+      >
+        <OnlinePaymentForm />
+      </MuiModal>
+      {/* Citizen Search Modal */}
+      <MuiModal
+        open={citizenSearchModal}
+        handleClose={handleCloseCitizenSearchModal}
+        modelHeading={"Citizen Search"}
+        className={"w-1/4"}
+      >
+        <CitizenSearchForm />
+      </MuiModal>
+      {/* Model Drawing Modal */}
+      <MuiModal
+        open={modelDrawingModal}
+        handleClose={handleCloseModelDrawingModal}
+        modelHeading={"ABPAS-II - Model Drawing - Select ULB"}
+        className={"w-[45%]"}
+      >
+        <ModelDrawingForm />
+      </MuiModal>
       <div className="flex flex-col gap-10">
         <p className="text-center text-lg mx-72 font-normal">
           "Online Building Permission in Madhya Pradesh is done through ABPAS
@@ -42,6 +112,7 @@ function Home() {
           topHeading={"Sign Up"}
           topSubheading={"New / Renewal Registration"}
           bottomHeading={"List of Consultants"}
+          topOpenFunction={handleOpenSignupModal}
         />
         <Enquiry
           image={download}
@@ -50,12 +121,13 @@ function Home() {
           bottomHeading={"SLA TimeLine"}
           topOpenFunction={handleOpenMenu}
         />
-        <SwipeableMenu isOpen={isMenuOpen} onClose={handleCloseMenu} />
+
         <Enquiry
           image={payment}
           topHeading={"Online Payment"}
           topSubheading={"Think Smarter, Do online payment."}
           bottomHeading={"EoDBReport"}
+          topOpenFunction={handleOpenOnlinePaymentModal}
           bottomOpenFunction={() => navigate("/EoDBReport")}
         />
         <Enquiry
@@ -63,12 +135,14 @@ function Home() {
           topHeading={"Citizen Search"}
           topSubheading={"Track your Proposal File status."}
           bottomHeading={"FAQ"}
+          topOpenFunction={handleOpenCitizenSearchModal}
           bottomOpenFunction={() => navigate("/FAQDetails")}
         />
         <Enquiry
           image={model}
           topHeading={"Model Drawing"}
           topSubheading={"Explore the concept of Model Drawing."}
+          topOpenFunction={handleOpenModelDrawingModal}
           bottomHeading={"Layout Sketch"}
         />
       </div>
