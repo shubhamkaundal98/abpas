@@ -113,6 +113,7 @@ function Home() {
           topSubheading={"New / Renewal Registration"}
           bottomHeading={"List of Consultants"}
           topOpenFunction={handleOpenSignupModal}
+          bottomOpenFunction={() => navigate("/consultant")}
         />
         <Enquiry
           image={download}
@@ -120,6 +121,7 @@ function Home() {
           topSubheading={"User Manual, Checklist and forms"}
           bottomHeading={"SLA TimeLine"}
           topOpenFunction={handleOpenMenu}
+          bottomOpenFunction={() => navigate("/SLADetails")}
         />
 
         <Enquiry
@@ -144,6 +146,7 @@ function Home() {
           topSubheading={"Explore the concept of Model Drawing."}
           topOpenFunction={handleOpenModelDrawingModal}
           bottomHeading={"Layout Sketch"}
+          bottomOpenFunction={() => navigate("/LayoutSearch")}
         />
       </div>
       <div className="flex flex-col items-end w-full pr-52">

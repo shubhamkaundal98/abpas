@@ -1,13 +1,10 @@
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { RxCross2 } from "react-icons/rx";
 
 export default function MuiModel({
   open,
   handleClose,
-  children = "vvvhj",
+  children,
   modelHeading,
   className,
 }) {

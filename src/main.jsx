@@ -15,6 +15,9 @@ import {
   ForgotPassword,
   FAQDetails,
   EoDBReport,
+  LayoutSketch,
+  ListConsultant,
+  SlaTimeline,
 } from "./pages/pages.js";
 
 const router = createBrowserRouter(
@@ -23,8 +26,11 @@ const router = createBrowserRouter(
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
-      <Route path="/FAQDetails" element={<FAQDetails />} />
+      <Route path="/consultant" element={<ListConsultant />} />
+      <Route path="/SLADetails" element={<SlaTimeline />} />
       <Route path="/EoDBReport" element={<EoDBReport />} />
+      <Route path="/FAQDetails" element={<FAQDetails />} />
+      <Route path="/LayoutSearch" element={<LayoutSketch />} />
     </Route>
   )
 );
