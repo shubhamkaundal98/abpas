@@ -3,13 +3,22 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
+import { useNavigate } from "react-router-dom";
 
-export default function SignupForm() {
+export default function SignupForm({
+  handleCloseSignupModal,
+  handleOpenSignupRenewalModal,
+}) {
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
 
   const showData = (data) => {
-    console.log(data);
+    if (data.new) {
+      navigate("/signup");
+    } else if (data.renewal) {
+      handleCloseSignupModal();
+      handleOpenSignupRenewalModal();
+    }
   };
 
   return (

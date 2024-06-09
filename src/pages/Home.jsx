@@ -12,6 +12,7 @@ import OnlinePaymentForm from "../components/OnlinePaymentForm";
 import ModelDrawingForm from "../components/ModelDrawingForm";
 import SignupForm from "../components/SignupForm";
 import CitizenSearchForm from "../components/CitizenSearchForm";
+import RenewalForm from "../components/RenewalForm";
 
 function Home() {
   const navigate = useNavigate();
@@ -21,6 +22,12 @@ function Home() {
   const [signupModal, setSignupModal] = useState(false);
   const handleOpenSignupModal = () => setSignupModal(true);
   const handleCloseSignupModal = () => setSignupModal(false);
+
+  const [signupRenewalModal, setSignupRenewalModal] = useState(false);
+  const handleOpenSignupRenewalModal = () => setSignupRenewalModal(true);
+  const handleCloseSignupRenewalModal = () => setSignupRenewalModal(false);
+
+  const [renewalModal, setRenewalModel] = useState(false);
 
   //Download Pdf Slider
 
@@ -55,7 +62,18 @@ function Home() {
         modelHeading={"Sign Up"}
         className={"w-1/4"}
       >
-        <SignupForm />
+        <SignupForm
+          handleCloseSignupModal={handleCloseSignupModal}
+          handleOpenSignupRenewalModal={handleOpenSignupRenewalModal}
+        />
+      </MuiModal>
+      <MuiModal
+        open={signupRenewalModal}
+        handleClose={handleCloseSignupRenewalModal}
+        modelHeading={"Renewal"}
+        className={"w-1/4"}
+      >
+        <RenewalForm />
       </MuiModal>
       {/* Download Pdf Slider */}
       <SwipeableMenu isOpen={isMenuOpen} onClose={handleCloseMenu} />

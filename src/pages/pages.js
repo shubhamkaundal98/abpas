@@ -6,6 +6,7 @@ import EoDBReport from "./EoDBReport";
 import LayoutSketch from "./LayoutSketchPage";
 import ListConsultant from "./ListConsultantPage";
 import SlaTimeline from "./SlaTimelinePage";
+import Signup from "./Signup";
 
 export {
   Home,
@@ -16,4 +17,5 @@ export {
   LayoutSketch,
   ListConsultant,
   SlaTimeline,
+  Signup,
 };

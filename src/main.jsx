@@ -18,6 +18,7 @@ import {
   LayoutSketch,
   ListConsultant,
   SlaTimeline,
+  Signup,
 } from "./pages/pages.js";
 
 const router = createBrowserRouter(
@@ -31,6 +32,7 @@ const router = createBrowserRouter(
       <Route path="/EoDBReport" element={<EoDBReport />} />
       <Route path="/FAQDetails" element={<FAQDetails />} />
       <Route path="/LayoutSearch" element={<LayoutSketch />} />
+      <Route path="/signup" element={<Signup />} />
     </Route>
   )
 );

@@ -4,8 +4,6 @@ import { RiPlayReverseFill, RiPlayFill } from "react-icons/ri";
 import { useMemo } from "react";
 
 export default function TableComponent({ tableData, tableColumns }) {
-  console.log(tableData);
-
   const tabledata = useMemo(() => tableData, []);
   const tablecolumns = useMemo(() => tableColumns, []);
 
@@ -23,7 +21,7 @@ export default function TableComponent({ tableData, tableColumns }) {
     pageCount,
     gotoPage,
   } = useTable(
-    { columns: tablecolumns, data: tabledata, initialState: { pageSize: 5 } },
+    { columns: tablecolumns, data: tabledata, initialState: { pageSize: 15 } },
     useSortBy,
     usePagination
   );

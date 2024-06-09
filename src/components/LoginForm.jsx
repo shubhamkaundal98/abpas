@@ -83,7 +83,12 @@ export default function LoginForm() {
             variant="standard"
           />
           <div className="flex justify-evenly items-center w-1/2">
-            <button onClick={() => refreshString()}>
+            <button
+              onClick={(e) => {
+                refreshString();
+                e.preventDefault();
+              }}
+            >
               <TbReload className="text-[#0288d1] text-xl" />
             </button>
             <div className="border-2 border-blue-500 w-5/6 h-10 text-center pt-1 text-lg font-semibold">
@@ -105,7 +110,10 @@ export default function LoginForm() {
         >
           Forgot Password?
         </button>
-        <button className="text-[#0288d1] hover:underline hover:text-blue-900 text-sm">
+        <button
+          onClick={() => navigate("/signup")}
+          className="text-[#0288d1] hover:underline hover:text-blue-900 text-sm"
+        >
           Not yet Registered
         </button>
       </div>
