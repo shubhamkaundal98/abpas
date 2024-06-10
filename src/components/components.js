@@ -1,6 +1,29 @@
 import Enquiry from "./Enquiry";
 import Header from "./Header";
-import Form from "./LoginForm";
 import Footer from "./Footer";
+import CitizenSearchForm from "./formComponents/CitizenSearchForm";
+import CitizenSignupForm from "./formComponents/CitizenSignupForm";
+import ConsultantSignupForm from "./formComponents/ConsultantSignupForm";
+import LoginForm from "./formComponents/LoginForm";
+import ModelDrawingForm from "./formComponents/ModelDrawingForm";
+import OnlinePaymentForm from "./formComponents/OnlinePaymentForm";
+import RenewalForm from "./formComponents/RenewalForm";
+import SignupForm from "./formComponents/SignupForm";
+import SwipeableMenu from "./SwipeableMenu";
+import ReactTableComponent from "./ReactTableComponent";
 
-export { Header, Enquiry, Form, Footer };
+export {
+  Header,
+  Enquiry,
+  LoginForm,
+  Footer,
+  CitizenSearchForm,
+  CitizenSignupForm,
+  ConsultantSignupForm,
+  ModelDrawingForm,
+  OnlinePaymentForm,
+  RenewalForm,
+  SignupForm,
+  SwipeableMenu,
+  ReactTableComponent,
+};

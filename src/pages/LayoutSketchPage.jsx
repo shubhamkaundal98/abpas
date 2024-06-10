@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import TableComponent from "../components/TableComponent";
+import { ReactTableComponent } from "../components/components";
 
 export default function LayoutSketch() {
   const tabledata = [
@@ -91,7 +91,7 @@ export default function LayoutSketch() {
         Layout Search Report:
       </div>
 
-      <TableComponent tableData={tabledata} tableColumns={tablecolumns} />
+      <ReactTableComponent tableData={tabledata} tableColumns={tablecolumns} />
       <div className="w-full mb-3 flex justify-end">
         <button
           onClick={() => navigate("/")}

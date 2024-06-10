@@ -1,18 +1,20 @@
-import Enquiry from "../components/Enquiry";
+import {
+  Enquiry,
+  SwipeableMenu,
+  OnlinePaymentForm,
+  ModelDrawingForm,
+  SignupForm,
+  CitizenSearchForm,
+  RenewalForm,
+} from "../components/components";
 import signup from "../assets/signup.png";
 import download from "../assets/download.png";
 import citizens from "../assets/citizens.png";
 import model from "../assets/model.png";
 import payment from "../assets/payment.png";
 import { useState } from "react";
-import SwipeableMenu from "../components/SwipeableMenu";
 import { useNavigate } from "react-router-dom";
-import MuiModal from "../components/MuiModal";
-import OnlinePaymentForm from "../components/OnlinePaymentForm";
-import ModelDrawingForm from "../components/ModelDrawingForm";
-import SignupForm from "../components/SignupForm";
-import CitizenSearchForm from "../components/CitizenSearchForm";
-import RenewalForm from "../components/RenewalForm";
+import MuiModal from "../components/muiComponents/MuiModal";
 
 function Home() {
   const navigate = useNavigate();

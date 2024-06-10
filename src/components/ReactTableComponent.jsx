@@ -3,7 +3,7 @@ import { IoPlaySkipBack, IoPlaySkipForward } from "react-icons/io5";
 import { RiPlayReverseFill, RiPlayFill } from "react-icons/ri";
 import { useMemo } from "react";
 
-export default function TableComponent({ tableData, tableColumns }) {
+export default function ReactTableComponent({ tableData, tableColumns }) {
   const tabledata = useMemo(() => tableData, []);
   const tablecolumns = useMemo(() => tableColumns, []);
 

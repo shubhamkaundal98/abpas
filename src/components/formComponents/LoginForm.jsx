@@ -12,7 +12,7 @@ import { useForm } from "react-hook-form";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
 
-export default function LoginForm() {
+function LoginForm() {
   const navigate = useNavigate();
 
   const randomString = Math.random().toString(36).slice(8);
@@ -125,3 +125,5 @@ export default function LoginForm() {
     </div>
   );
 }
+
+export default LoginForm;

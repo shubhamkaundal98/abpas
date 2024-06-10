@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { tabledataone } from "../components/buildingplanningJsonData/data";
-import { tabledatatwo } from "../components/completionJsonData/data";
-import { tabledatathree } from "../components/plinthJsonData/data";
-import TableComponent from "../components/TableComponent";
+import { tabledataone } from "../jsonDatas/buildingplanningJsonData/data";
+import { tabledatatwo } from "../jsonDatas/completionJsonData/data";
+import { tabledatathree } from "../jsonDatas/plinthJsonData/data";
+import { ReactTableComponent } from "../components/components";
 import { useState } from "react";
 
 export default function EoDBReport() {
@@ -53,13 +53,19 @@ export default function EoDBReport() {
       <div className="text-start mb-2 text-xl font-semibold">EoDB Reports:</div>
 
       {firstTable && (
-        <TableComponent tableData={tabledataone} tableColumns={tablecolumns} />
+        <ReactTableComponent
+          tableData={tabledataone}
+          tableColumns={tablecolumns}
+        />
       )}
       {secondTable && (
-        <TableComponent tableData={tabledatatwo} tableColumns={tablecolumns} />
+        <ReactTableComponent
+          tableData={tabledatatwo}
+          tableColumns={tablecolumns}
+        />
       )}
       {thirdTable && (
-        <TableComponent
+        <ReactTableComponent
           tableData={tabledatathree}
           tableColumns={tablecolumns}
         />

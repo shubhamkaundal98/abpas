@@ -4,8 +4,10 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import { useState } from "react";
-import CitizenSignupForm from "../components/CitizenSignupForm";
-import ConsultantSignupForm from "../components/ConsultantSignupForm";
+import {
+  CitizenSignupForm,
+  ConsultantSignupForm,
+} from "../components/components";
 
 export default function Signup() {
   const navigate = useNavigate();

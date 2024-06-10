@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import TableComponent from "../components/TableComponent";
+import { ReactTableComponent } from "../components/components";
 
 export default function ListConsultant() {
   const tabledata = [
@@ -136,7 +136,7 @@ export default function ListConsultant() {
       <div className="bg-[#337ab7] text-white text-center text-xl px-5 py-2 rounded-sm">
         List of Consultants
       </div>
-      <TableComponent tableData={tabledata} tableColumns={tablecolumns} />
+      <ReactTableComponent tableData={tabledata} tableColumns={tablecolumns} />
       <div className="w-full mb-3 flex justify-end">
         <button
           onClick={() => navigate("/")}

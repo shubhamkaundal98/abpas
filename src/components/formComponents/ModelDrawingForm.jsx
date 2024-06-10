@@ -4,9 +4,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useEffect, useState } from "react";
-import { divisions } from "./modelJsonData/divisions";
-import { districts } from "./modelJsonData/districts";
-import { ulbies } from "./modelJsonData/ulbies";
+import { districts, divisions, ulbies } from "../../jsonDatas/jsondata";
 
 export default function ModelDrawingForm() {
   const { register, handleSubmit } = useForm();
