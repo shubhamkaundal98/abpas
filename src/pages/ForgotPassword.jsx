@@ -22,7 +22,7 @@ export default function ForgotPassword() {
           />
           <button
             type="submit"
-            className="bg-[#337ab7] text-white w-full py-2 rounded-md mt-10 mb-2 hover:bg-slate-500 hover:duration-700"
+            className="bg-blue-base text-white w-full py-2 rounded-md mt-10 mb-2 hover:bg-slate-500 hover:duration-700"
           >
             SEND
           </button>

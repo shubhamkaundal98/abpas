@@ -4,6 +4,8 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import { useState } from "react";
+import { RxCross2 } from "react-icons/rx";
+
 import {
   CitizenSignupForm,
   ConsultantSignupForm,
@@ -15,9 +17,11 @@ export default function Signup() {
 
   return (
     <div className="h-full bg-white flex flex-col mx-48 mb-5 gap-5">
-      <div className="flex justify-between bg-[#337ab7] text-white px-5 py-2 rounded-sm">
+      <div className="flex justify-between bg-blue-base text-white px-5 py-2 rounded-sm">
         <h1>New User Registration</h1>
-        <button onClick={() => navigate("/")}>CLOSE</button>
+        <button className="text-2xl font-bold" onClick={() => navigate("/")}>
+          <RxCross2 />
+        </button>
       </div>
       <div className="mx-3">
         <div className="flex items-center gap-5">

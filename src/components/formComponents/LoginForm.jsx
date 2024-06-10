@@ -64,9 +64,9 @@ function LoginForm() {
                   onMouseDown={handleMouseDownPassword}
                 >
                   {showPassword ? (
-                    <IoEye className="text-[#0288d1] text-lg" />
+                    <IoEye className="text-blue-base text-lg" />
                   ) : (
-                    <IoEyeOff className="text-[#0288d1] text-lg" />
+                    <IoEyeOff className="text-blue-base text-lg" />
                   )}
                 </IconButton>
               </InputAdornment>
@@ -89,30 +89,30 @@ function LoginForm() {
                 e.preventDefault();
               }}
             >
-              <TbReload className="text-[#0288d1] text-xl" />
+              <TbReload className="text-blue-base text-xl" />
             </button>
-            <div className="border-2 border-blue-500 w-5/6 h-10 text-center pt-1 text-lg font-semibold">
+            <div className="border-2 border-blue-base w-5/6 h-10 text-center pt-1 text-lg font-semibold">
               {captcha}
             </div>
           </div>
         </div>
         <button
           type="submit"
-          className="bg-[#337ab7] text-white w-full py-2 rounded-md mt-3 mb-2 hover:bg-slate-500 hover:duration-700"
+          className="bg-blue-base text-white w-full py-2 rounded-md mt-3 mb-2 hover:bg-slate-500 hover:duration-700"
         >
           LOG IN
         </button>
       </form>
       <div className="flex justify-between px-4 mb-2">
         <button
-          className="text-[#0288d1] hover:underline hover:text-blue-900 text-sm"
+          className="text-blue-base hover:underline hover:text-blue-900 text-sm"
           onClick={() => navigate("/forgot-password")}
         >
           Forgot Password?
         </button>
         <button
           onClick={() => navigate("/signup")}
-          className="text-[#0288d1] hover:underline hover:text-blue-900 text-sm"
+          className="text-blue-base hover:underline hover:text-blue-900 text-sm"
         >
           Not yet Registered
         </button>

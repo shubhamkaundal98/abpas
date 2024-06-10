@@ -19,7 +19,7 @@ export default function MuiModel({
         <div
           className={`fixed bg-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-auto rounded-md ${className}`}
         >
-          <div className="flex justify-between items-center bg-[#337ab7] rounded-t-sm py-2 px-3 text-white text-xl font-medium">
+          <div className="flex justify-between items-center bg-blue-base rounded-t-sm py-2 px-3 text-white text-xl font-medium">
             <h1 id="modal-modal-title">{modelHeading}</h1>
             <RxCross2
               onClick={handleClose}

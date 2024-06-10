@@ -26,14 +26,14 @@ function Enquiry({
             }`}
           />
         </div>
-        <div className="bg-[#0288d1] flex flex-col items-center gap-2 py-5 px-5 rounded-b-sm h-28">
+        <div className="bg-blue-base flex flex-col items-center gap-2 py-5 px-5 rounded-b-sm h-28">
           <p className="text-xl">{topHeading}</p>
           <p className="text-center text-sm">{topSubheading}</p>
         </div>
       </div>
       <div
         onClick={bottomOpenFunction}
-        className="bg-[#0288d1] hover:cursor-pointer"
+        className="bg-blue-base hover:cursor-pointer"
       >
         <p className="text-center">{bottomHeading}</p>
       </div>

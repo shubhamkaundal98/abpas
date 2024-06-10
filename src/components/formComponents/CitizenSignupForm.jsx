@@ -178,7 +178,7 @@ export default function CitizenSignupForm() {
       <div className="flex justify-center">
         <button
           type="submit"
-          className="bg-[#337ab7] text-white w-1/4 py-2 rounded-md mt-3 mb-2 hover:bg-slate-500 hover:duration-700"
+          className="bg-blue-base text-white w-1/4 py-2 rounded-md mt-3 mb-2 hover:bg-slate-500 hover:duration-700"
         >
           CLICK TO UPLOAD DOCUMENTS
         </button>

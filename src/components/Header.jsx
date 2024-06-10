@@ -16,7 +16,7 @@ function Header() {
         />
       </div>
       <div className="flex flex-col items-center gap-3">
-        <div className="text-2xl text-[#0288d1] font-medium">
+        <div className="text-2xl text-blue-base font-medium">
           AUTOMATED BUILDING PLAN APPROVAL SYSTEM-II
         </div>
         <div className="text-[17px] font-medium">
@@ -26,18 +26,18 @@ function Header() {
       <div className="flex gap-2 items-center">
         <div
           onClick={() => navigate("/")}
-          className="text-[#0288d1] hover:underline hover:text-blue-900 hover:cursor-pointer flex items-center gap-1"
+          className="text-blue-base hover:underline hover:text-blue-900 hover:cursor-pointer flex items-center gap-1"
         >
           <span>Home</span>
-          <FaHome className="text-[#0288d1]" />
+          <FaHome className="text-blue-base" />
         </div>
         <div className="bg-black h-8 w-[1px]"></div>
         <div
           onClick={() => navigate("/login")}
-          className="text-[#0288d1] hover:underline hover:text-blue-900 hover:cursor-pointer flex items-center gap-1"
+          className="text-blue-base hover:underline hover:text-blue-900 hover:cursor-pointer flex items-center gap-1"
         >
           <span>Sign in</span>
-          <PiUserCircleFill className="text-[#0288d1]" />
+          <PiUserCircleFill className="text-blue-base" />
         </div>
       </div>
     </div>

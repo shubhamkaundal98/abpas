@@ -95,7 +95,7 @@ export default function LayoutSketch() {
       <div className="w-full mb-3 flex justify-end">
         <button
           onClick={() => navigate("/")}
-          className="bg-[#337ab7] text-white text-center px-5 py-2 rounded-sm hover:bg-slate-500 hover:duration-700"
+          className="bg-blue-base text-white text-center px-5 py-2 rounded-sm hover:bg-slate-500 hover:duration-700"
         >
           CLOSE
         </button>

@@ -11,7 +11,7 @@ function Login() {
         <p className="text-base">
           As a registered user, you can take benefits of Plan Scrutiny process
           through automated software which technically scrutinies your proposal.
-          <span className="text-[#0288d1] hover:underline hover:text-blue-900">
+          <span className="text-blue-base hover:underline hover:text-blue-900">
             More
           </span>
         </p>

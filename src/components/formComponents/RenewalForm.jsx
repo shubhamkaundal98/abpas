@@ -21,7 +21,7 @@ export default function RenewalForm() {
         />
         <button
           type="submit"
-          className="bg-[#337ab7] text-white w-full py-2 rounded-md mt-3 mb-2 hover:bg-slate-500 hover:duration-700"
+          className="bg-blue-base text-white w-full py-2 rounded-md mt-3 mb-2 hover:bg-slate-500 hover:duration-700"
         >
           GENERATE OTP
         </button>

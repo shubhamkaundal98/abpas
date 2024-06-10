@@ -173,13 +173,13 @@ function Home() {
         <div className="flex justify-end gap-10">
           <p>
             Toll Free Number/टोल फ्री नंबर :{" "}
-            <span className="text-xl font-medium text-[#0288d1]">
+            <span className="text-xl font-medium text-blue-base">
               1800 120 2664
             </span>
           </p>
           <p>
             Email:{" "}
-            <span className="text-xl font-medium text-[#0288d1]">
+            <span className="text-xl font-medium text-blue-base">
               abpashelpdesk@aksharags.com
             </span>
           </p>
@@ -190,7 +190,7 @@ function Home() {
             Click---&#62;{" "}
             <a
               href="https://www.emptownplan.gov.in/#"
-              className="text-xl font-medium text-[#0288d1]"
+              className="text-xl font-medium text-blue-base"
             >
               https://www.emptownplan.gov.in/#
             </a>

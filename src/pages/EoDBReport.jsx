@@ -81,26 +81,26 @@ export default function EoDBReport() {
         <div className="flex gap-4">
           <button
             onClick={() => changeToFirstTable()}
-            className="bg-[#337ab7] text-white text-center px-5 py-2 rounded-sm hover:bg-slate-500 hover:duration-700"
+            className="bg-blue-base text-white text-center px-5 py-2 rounded-sm hover:bg-slate-500 hover:duration-700"
           >
             BUILDING PLAN DETAILS
           </button>
           <button
             onClick={() => changeToSecondTable()}
-            className="bg-[#337ab7] text-white text-center px-5 py-2 rounded-sm hover:bg-slate-500 hover:duration-700"
+            className="bg-blue-base text-white text-center px-5 py-2 rounded-sm hover:bg-slate-500 hover:duration-700"
           >
             PLINTH DETAILS
           </button>
           <button
             onClick={() => changeToThirdTable()}
-            className="bg-[#337ab7] text-white text-center px-5 py-2 rounded-sm hover:bg-slate-500 hover:duration-700"
+            className="bg-blue-base text-white text-center px-5 py-2 rounded-sm hover:bg-slate-500 hover:duration-700"
           >
             COMPLETION DETAILS
           </button>
         </div>
         <button
           onClick={() => navigate("/")}
-          className="bg-[#337ab7] text-white text-center px-5 py-2 rounded-sm hover:bg-slate-500 hover:duration-700"
+          className="bg-blue-base text-white text-center px-5 py-2 rounded-sm hover:bg-slate-500 hover:duration-700"
         >
           CLOSE
         </button>
