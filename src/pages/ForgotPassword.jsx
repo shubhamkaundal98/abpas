@@ -1,8 +1,18 @@
 import TextField from "@mui/material/TextField";
 import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const schema = z.object({
+  user_id: z.string().min(2, { message: "This is required." }),
+});
 
 export default function ForgotPassword() {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: zodResolver(schema) });
 
   const sendData = (data) => {
     console.log(data);
@@ -13,6 +23,8 @@ export default function ForgotPassword() {
       <div className="w-1/4">
         <form onSubmit={handleSubmit(sendData)}>
           <TextField
+            error={errors.user_id ? true : false}
+            helperText={errors.user_id && errors.user_id.message}
             id="user-id"
             label="Enter User ID *"
             variant="standard"

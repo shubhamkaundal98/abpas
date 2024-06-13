@@ -5,12 +5,21 @@ import Input from "@mui/material/Input";
 import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
 import { FormControl } from "@mui/material";
+import FormHelperText from "@mui/material/FormHelperText";
 import { TbReload } from "react-icons/tb";
 import Marquee from "react-fast-marquee";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const schema = z.object({
+  user_id: z.string().min(2, { message: "This is required." }),
+  password: z.string().min(2, { message: "This is required." }),
+  captcha: z.string().min(2, { message: "This is required." }),
+});
 
 function LoginForm() {
   const navigate = useNavigate();
@@ -24,13 +33,20 @@ function LoginForm() {
 
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const handleClickShowPassword = (e) => {
+    setShowPassword((show) => !show);
+    e.preventDefault();
+  };
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
 
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: zodResolver(schema) });
 
   const login = async (data) => {
     console.log(data);
@@ -40,6 +56,8 @@ function LoginForm() {
     <div>
       <form onSubmit={handleSubmit(login)} className="flex flex-col gap-7">
         <TextField
+          error={errors.user_id ? true : false}
+          helperText={errors.user_id && errors.user_id.message}
           id="user-id"
           label="User Id *"
           variant="standard"
@@ -47,7 +65,34 @@ function LoginForm() {
           {...register("user_id")}
           autoComplete="off"
         />
-        <FormControl className="w-full" variant="standard">
+        {/* <div className="flex items-baseline">
+          <TextField
+            error={errors.password ? true : false}
+            helperText={errors.password && errors.password.message}
+            id="password"
+            label="Password"
+            type={showPassword ? "text" : "password"}
+            autoComplete="current-password"
+            variant="standard"
+            {...register("password")}
+            className="w-full"
+          />
+          <button
+            onClick={handleClickShowPassword}
+            onMouseDown={handleMouseDownPassword}
+          >
+            {showPassword ? (
+              <IoEye className="text-blue-base text-lg" />
+            ) : (
+              <IoEyeOff className="text-blue-base text-lg" />
+            )}
+          </button>
+        </div> */}
+        <FormControl
+          className="w-full"
+          variant="standard"
+          error={errors.password ? true : false}
+        >
           <InputLabel htmlFor="standard-adornment-password">
             Password *
           </InputLabel>
@@ -72,10 +117,15 @@ function LoginForm() {
               </InputAdornment>
             }
           />
+          <FormHelperText>
+            {errors.user_id && errors.user_id.message}
+          </FormHelperText>
         </FormControl>
 
         <div className="flex justify-between items-end">
           <TextField
+            error={errors.captcha ? true : false}
+            helperText={errors.captcha && errors.captcha.message}
             autoComplete="off"
             {...register("captcha")}
             id="captcha"

@@ -11,6 +11,7 @@ import RenewalForm from "./formComponents/RenewalForm";
 import SignupForm from "./formComponents/SignupForm";
 import SwipeableMenu from "./SwipeableMenu";
 import ReactTableComponent from "./ReactTableComponent";
+import Error404 from "./Error404";
 
 export {
   Header,
@@ -26,4 +27,5 @@ export {
   SignupForm,
   SwipeableMenu,
   ReactTableComponent,
+  Error404,
 };

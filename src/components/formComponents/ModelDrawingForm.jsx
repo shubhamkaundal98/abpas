@@ -3,11 +3,24 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import FormHelperText from "@mui/material/FormHelperText";
 import { useEffect, useState } from "react";
 import { districts, divisions, ulbies } from "../../jsonDatas/jsondata";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const schema = z.object({
+  division: z.string().min(1, { message: "This is required." }),
+  district: z.string().min(1, { message: "This is required." }),
+  ulb: z.string().min(1, { message: "This is required." }),
+});
 
 export default function ModelDrawingForm() {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: zodResolver(schema) });
 
   const [selectDivision, setSelectDivision] = useState("");
   const [selectDistrict, setSelectDistrict] = useState("");
@@ -51,7 +64,11 @@ export default function ModelDrawingForm() {
   return (
     <form onSubmit={handleSubmit(showData)}>
       <div className="flex gap-10">
-        <FormControl variant="standard" sx={{ m: 1, minWidth: 175 }}>
+        <FormControl
+          variant="standard"
+          sx={{ m: 1, minWidth: 175 }}
+          error={errors.division ? true : false}
+        >
           <InputLabel id="division-input">Select a division</InputLabel>
           <Select
             {...register("division")}
@@ -71,8 +88,15 @@ export default function ModelDrawingForm() {
                 })
               : ""}
           </Select>
+          <FormHelperText>
+            {errors.division && errors.division.message}
+          </FormHelperText>
         </FormControl>
-        <FormControl variant="standard" sx={{ m: 1, minWidth: 175 }}>
+        <FormControl
+          variant="standard"
+          sx={{ m: 1, minWidth: 175 }}
+          error={errors.district ? true : false}
+        >
           <InputLabel id="district-input">Select a district</InputLabel>
           <Select
             {...register("district")}
@@ -92,8 +116,15 @@ export default function ModelDrawingForm() {
                 })
               : ""}
           </Select>
+          <FormHelperText>
+            {errors.district && errors.district.message}
+          </FormHelperText>
         </FormControl>
-        <FormControl variant="standard" sx={{ m: 1, minWidth: 175 }}>
+        <FormControl
+          variant="standard"
+          sx={{ m: 1, minWidth: 175 }}
+          error={errors.district ? true : false}
+        >
           <InputLabel id="ulb-input">Select a ULB</InputLabel>
           <Select
             {...register("ulb")}
@@ -113,6 +144,7 @@ export default function ModelDrawingForm() {
                 })
               : ""}
           </Select>
+          <FormHelperText>{errors.ulb && errors.ulb.message}</FormHelperText>
         </FormControl>
       </div>
       <div className="bg-slate-200 py-[0.5px] my-5 "></div>

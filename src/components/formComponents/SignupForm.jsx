@@ -16,8 +16,8 @@ export default function SignupForm({
     if (data.new) {
       navigate("/signup");
     } else if (data.renewal) {
-      handleCloseSignupModal();
-      handleOpenSignupRenewalModal();
+      // handleCloseSignupModal();
+      // handleOpenSignupRenewalModal();
     }
   };
 
