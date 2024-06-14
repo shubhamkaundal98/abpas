@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import bvnRule from "../assets/FAQ_Deatails-converted.pdf";
+import bvnRule from "../assets/pdfs/FAQ_Deatails-converted.pdf";
 
 export default function FAQDetails() {
   const navigate = useNavigate();

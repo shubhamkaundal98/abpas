@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import slaImage from "../assets/sla.png";
+import slaImage from "../assets/images/sla.png";
 
 export default function SlaTimeline() {
   const navigate = useNavigate();

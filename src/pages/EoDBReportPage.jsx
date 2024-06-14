@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { tabledataone } from "../jsonDatas/buildingplanningJsonData/data";
-import { tabledatatwo } from "../jsonDatas/completionJsonData/data";
-import { tabledatathree } from "../jsonDatas/plinthJsonData/data";
+import { tabledataone } from "../store/jsonDatas/buildingplanningJsonData/data";
+import { tabledatatwo } from "../store/jsonDatas/completionJsonData/data";
+import { tabledatathree } from "../store/jsonDatas/plinthJsonData/data";
 import { ReactTableComponent } from "../components/components";
 import { useState } from "react";
 

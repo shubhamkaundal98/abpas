@@ -7,11 +7,11 @@ import {
   CitizenSearchForm,
   RenewalForm,
 } from "../components/components";
-import signup from "../assets/signup.png";
-import download from "../assets/download.png";
-import citizens from "../assets/citizens.png";
-import model from "../assets/model.png";
-import payment from "../assets/payment.png";
+import signup from "../assets/images/signup.png";
+import download from "../assets/images/download.png";
+import citizens from "../assets/images/citizens.png";
+import model from "../assets/images/model.png";
+import payment from "../assets/images/payment.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MuiModal from "../components/muiComponents/MuiModal";
