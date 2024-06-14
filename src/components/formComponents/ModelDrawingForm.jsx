@@ -5,7 +5,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import FormHelperText from "@mui/material/FormHelperText";
 import { useEffect, useState } from "react";
-import { districts, divisions, ulbies } from "../../jsonDatas/jsondata";
+import { districts, divisions, ulbies } from "../../store/jsonDatas/jsondata";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 

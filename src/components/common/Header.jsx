@@ -1,4 +1,4 @@
-import logo from "../assets/logo.png";
+import logo from "../../assets/images/logo.png";
 import { useNavigate } from "react-router-dom";
 import { PiUserCircleFill } from "react-icons/pi";
 import { FaHome } from "react-icons/fa";

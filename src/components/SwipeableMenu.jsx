@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSpring, animated } from "react-spring";
 import { useGesture } from "@use-gesture/react";
-import manualVersion from "../assets/ABPAS_II_USER _MANUAL_ VERSION_3.2.pdf";
-import bvnRule from "../assets/2012_06_01_BVN_rule_2012.pdf";
+import manualVersion from "../assets/pdfs/ABPAS_II_USER _MANUAL_ VERSION_3.2.pdf";
+import bvnRule from "../assets/pdfs/2012_06_01_BVN_rule_2012.pdf";
 
 const SwipeableMenu = ({ isOpen, onClose }) => {
   const menuRef = useRef();
