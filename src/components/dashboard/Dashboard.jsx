@@ -1,32 +1,35 @@
 // src/Dashboard.js
 import React, { useState } from 'react';
 
-const Dashboard = ({ messages, statisticsTableData, archAllCount, archIncompleteCount, archSubmittedAll, archInprocessCount, archRejectedCount, archReturnCount, archSanctionedCount, archDemandNote, archPaymentClearncecount }) => {
-  const [image, setImage] = useState('ICONS/profile.png');
+const messages = [{ Message: "This is a test message" }];
+const statisticsTableData = [
+  { StatusDisplayName: "Status 1", StatusId: 1, Count: 10 },
+  { StatusDisplayName: "Status 2", StatusId: 2, Count: 20 },
+];
+const archAllCount = 715;
+const archIncompleteCount = 189;
+const archSubmittedAll = 526;
+const archInprocessCount = 1051;
+const archRejectedCount = 16;
+const archReturnCount = 201;
+const archSanctionedCount = 120;
+const archDemandNote = 26;
+const archPaymentClearncecount = 10;
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setImage(e.target.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+const Dashboard = () => {
 
   return (
     <div className="w-full">
         <div className="text-left font-bold bg-white text-black p-4 border-b-2 border-black" id="FileStats">
-            <h1 className="text-[#0984e3] font-bold">Dashboard</h1>
+            <h1 className="text-[#2883dd] font-bold text-xl">Dashboard</h1>
         </div>
       <div className="text-center font-bold bg-white text-black p-4" id="FileStats">
-        <h3 className="text-black font-bold">FILE STATISTICS</h3>
+        <h3 className="text-black font-bold text-2xl">FILE STATISTICS</h3>
       </div>
 
       <table className="w-11/12 mx-auto shadow-md hidden border-2" id="dashboardListTable">
         <thead>
-          <tr className="bg-[#74b9ff] text-white text-center">
+          <tr className="bg-[#2883dd] text-white text-center">
             <th className="border border-black border-solid" >Total No.of Files</th>
             {statisticsTableData.map((data, index) => (
               <th className="border border-black border-solid" key={index}>{data.StatusDisplayName}</th>
@@ -42,15 +45,14 @@ const Dashboard = ({ messages, statisticsTableData, archAllCount, archIncomplete
           </tr>
         </tbody>
       </table>
-
       <table className="w-11/12 mx-auto shadow-md text-sm mt-4">
         <thead>
-          <tr className="bg-[#74b9ff] text-white text-center">
+          <tr className="bg-[#2883dd] text-white text-center">
             <td className="border border-black border-solid" colSpan="1">Total<br />no.of Files</td>
             <td className="border border-black border-solid" colSpan="6">Files</td>
             <td className="border border-black border-solid" colSpan="6">Payment Information</td>
           </tr>
-          <tr className="bg-[#b2bec3] text-white text-center">
+          <tr className="bg-[#707679] text-white text-center">
             <td className="border border-black border-solid">TOTAL<br />(T = D+S)</td>
             <td className="border border-black border-solid">Draft<br />(D)</td>
             <td className="border border-black border-solid">Submitted<br />(S= P+RJ+RT+A)</td>
@@ -75,15 +77,8 @@ const Dashboard = ({ messages, statisticsTableData, archAllCount, archIncomplete
             <td className="w-1/12 border border-black border-solid"><a className="text-blue-500 cursor-pointer" onClick={() => console.log('showMyfiles', 52, 'InPaymentClearence')}>{archPaymentClearncecount}</a></td>
           </tr>
         </tbody>
-      </table>
+        </table>
 
-      <div className="w-full mt-4">
-        <div className="w-full p-5">
-          <div className="container w-140 h-96 bg-transparent mt-7 mx-auto">
-            <canvas id="myChart" className="w-112 h-88"></canvas>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };

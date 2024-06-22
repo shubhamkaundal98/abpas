@@ -1,9 +1,23 @@
 import React, { useState } from 'react';
 import profile from "../../assets/images/profile.png";
 
+/**
+ * UserCard Component
+ * 
+ * This component displays a user profile card with an image upload feature.
+ * Users can click on the profile image to upload a new image.
+ */
 const UserCard = () => {
-  const [image, setImage] = useState('ICONS/profile.png');
+  const [image, setImage] = useState(profile);
 
+  /**
+   * Handle image change event
+   * 
+   * This function is triggered when the user selects a new image file.
+   * It reads the file and sets the image state to display the new image.
+   * 
+   * @param {object} e - The event object from the file input change event.
+   */
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -16,12 +30,15 @@ const UserCard = () => {
   };
 
   return (
-    <div className="docs-logo flex flex-col items-center text-center p-4 shadow-lg" style={{ background: 'linear-gradient(#337ab7, #000000)' }}>
+    <div
+      className="docs-logo flex flex-col items-center text-center p-4 shadow-lg"
+      style={{ background: 'linear-gradient(#337ab7, #000000)' }}
+    >
       <div className="image-upload">
         <label htmlFor="imgInp" className="cursor-pointer">
           <img
             id="blah"
-            src={profile}
+            src={image}
             className="w-24 h-24 rounded-full mt-5"
             alt="Profile"
           />

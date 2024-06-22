@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Dashboard from '../components/dashboard/Dashboard';
 import UserCard from '../components/dashboard/UserCard';
+import Dashboard from '../components/dashboard/Dashboard';
 
 const menuData = [
   { "Home": [] },
@@ -16,24 +16,20 @@ const menuData = [
   { "Lift Completion Request": [] },
 ];
 
-const messages = [{ Message: "This is a test message" }];
-const statisticsTableData = [
-  { StatusDisplayName: "Status 1", StatusId: 1, Count: 10 },
-  { StatusDisplayName: "Status 2", StatusId: 2, Count: 20 },
-];
-const archAllCount = 100;
-const archIncompleteCount = 50;
-const archSubmittedAll = 30;
-const archInprocessCount = 20;
-const archRejectedCount = 10;
-const archReturnCount = 5;
-const archSanctionedCount = 3;
-const archDemandNote = 2;
-const archPaymentClearncecount = 1;
-
+/**
+ * ArchDashboard Component
+ * 
+ * This component represents the main dashboard layout for the application. 
+ * It includes a user card, a navigation menu with submenus, and the main dashboard content.
+ */
 const ArchDashboard = () => {
   const [openMenus, setOpenMenus] = useState({});
 
+  /**
+   * Toggle the visibility of a submenu.
+   * 
+   * @param {string} menu - The name of the menu to toggle.
+   */
   const toggleSubMenu = (menu) => {
     setOpenMenus((prevOpenMenus) => ({
       ...prevOpenMenus,
@@ -43,7 +39,8 @@ const ArchDashboard = () => {
 
   return (
     <div className="flex my-5 mx-24 bg-white">
-      <div className="w-1/4 bg-[#74b9ff] h-full">
+      {/* Left Column: User Card and Navigation Menu */}
+      <div className="w-1/4 bg-[#2883dd] h-full">
         <UserCard />
         <div className="flex flex-col">
           {menuData.map((item, index) => {
@@ -57,7 +54,7 @@ const ArchDashboard = () => {
                   className="p-2 hover:bg-[#b2bec3] cursor-pointer flex justify-between"
                   onClick={() => subMenu.length && toggleSubMenu(menuName)}
                 >
-                  <span className="text-white">{menuName}</span>
+                  <span className='text-white'>{menuName}</span>
                   {subMenu.length > 0 && (
                     <span className="text-white text-2xl">{isOpen ? '-' : '+'}</span>
                   )}
@@ -67,7 +64,7 @@ const ArchDashboard = () => {
                     {subMenu.map((subItem, subIndex) => (
                       <div
                         key={subIndex}
-                        className="p-2 hover:bg-gray-600 cursor-pointer text-white"
+                        className="p-2 hover:bg-gray-600 cursor-pointer"
                       >
                         {subItem}
                       </div>
@@ -78,21 +75,13 @@ const ArchDashboard = () => {
             );
           })}
         </div>
+        {/* Content for the first column (3/12 or 1/4 of the width) */}
       </div>
+      
+      {/* Right Column: Main Dashboard Content */}
       <div className="w-3/4 h-full">
-        <Dashboard
-          messages={messages}
-          statisticsTableData={statisticsTableData}
-          archAllCount={archAllCount}
-          archIncompleteCount={archIncompleteCount}
-          archSubmittedAll={archSubmittedAll}
-          archInprocessCount={archInprocessCount}
-          archRejectedCount={archRejectedCount}
-          archReturnCount={archReturnCount}
-          archSanctionedCount={archSanctionedCount}
-          archDemandNote={archDemandNote}
-          archPaymentClearncecount={archPaymentClearncecount}
-        />
+        <Dashboard />
+        {/* Content for the second column (9/12 or 3/4 of the width) */}
       </div>
     </div>
   );
