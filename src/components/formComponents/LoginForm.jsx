@@ -149,6 +149,7 @@ function LoginForm() {
         <button
           type="submit"
           className="bg-blue-base text-white w-full py-2 rounded-md mt-3 mb-2 hover:bg-slate-500 hover:duration-700"
+          onClick={() => navigate("/ArchDashboard")}
         >
           LOG IN
         </button>

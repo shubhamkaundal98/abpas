@@ -7,6 +7,7 @@ import LayoutSketch from "./LayoutSketchPage";
 import ListConsultant from "./ListConsultantPage";
 import SlaTimeline from "./SlaTimelinePage";
 import Signup from "./SignupPage";
+import ArchDashboard from "./ArchDashboard";
 
 export {
   Home,
@@ -18,4 +19,5 @@ export {
   ListConsultant,
   SlaTimeline,
   Signup,
+  ArchDashboard,
 };

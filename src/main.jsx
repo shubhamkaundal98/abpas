@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
+
 import {
   Route,
   RouterProvider,
@@ -19,6 +20,7 @@ import {
   ListConsultant,
   SlaTimeline,
   Signup,
+  ArchDashboard,
 } from "./pages/pages.js";
 
 const router = createBrowserRouter(
@@ -33,6 +35,7 @@ const router = createBrowserRouter(
       <Route path="/FAQDetails" element={<FAQDetails />} />
       <Route path="/LayoutSearch" element={<LayoutSketch />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/ArchDashboard" element={<ArchDashboard />} />
     </Route>
   )
 );
