@@ -5,7 +5,7 @@ import FilesComponent from '../components/dashboard/Files';
 import ProfileComponent from '../components/dashboard/Profile';
 
 const menuData = [
-    { name: "Dashboard", component: "Dashboard", subMenu: [] },
+    { name: "Home", component: "Dashboard", subMenu: [] },
     { name: "File Statistics", component: "Statistics", subMenu: ["CVClearence", "Incomplete", "PaymentCleared", "PaymentPending", "Pending", "Rejected", "Returned", "Sanctioned", "Submitted"] },
     { name: "My Files", component: "Files", subMenu: [] },
     { name: "New Plan Submission", component: "NewPlan", subMenu: [] },
