@@ -119,10 +119,10 @@ const ProfileComponent = () => {
                 />
             </div>
 
-            <div className="flex justify-between bg-purple-600 text-white px-5 py-2 rounded-sm">
+            <div className="flex justify-between text-blue-700 px-1 my-2 rounded-sm">
                 Change Password
             </div>
-            <div className="flex flex-col gap-7">
+            <div className="flex flex-col">
                 <div className="grid grid-cols-2 items-center gap-4 py-2">
                     <TextField
                         error={errors.password ? true : false}
