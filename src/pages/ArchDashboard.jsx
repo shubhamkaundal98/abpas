@@ -2,18 +2,19 @@ import React, { useState } from 'react';
 import UserCard from '../components/dashboard/UserCard';
 import Dashboard from '../components/dashboard/Dashboard';
 import FilesComponent from '../components/dashboard/Files';
+import ProfileComponent from '../components/dashboard/Profile';
 
 const menuData = [
     { name: "Dashboard", component: "Dashboard", subMenu: [] },
-    { name: "File Statistics", component: "Statistics", subMenu: ["Resubmit", "Precheck Failed"] },
+    { name: "File Statistics", component: "Statistics", subMenu: ["CVClearence", "Incomplete", "PaymentCleared", "PaymentPending", "Pending", "Rejected", "Returned", "Sanctioned", "Submitted"] },
     { name: "My Files", component: "Files", subMenu: [] },
     { name: "New Plan Submission", component: "NewPlan", subMenu: [] },
     { name: "Profile", component: "Profile", subMenu: [] },
-    { name: "NOC", component: "NOC", subMenu: ["Resubmit", "Precheck Failed"] },
+    { name: "NOC", component: "NOC", subMenu: ["Fire NOC - Request Apply", "Fire NOC - Status", "Fire NOC - Download", "NMA Registration", "NMA Application", "NMA Request/Response", "Housing Board NOC - Apply", "Development Authority NOC - Apply", "Airport Authority NOC - Apply", "E.I.A/S.T.P NOC - Apply","High Rise Committee NOC - Apply", "Nazul NOC - Apply", "Zonal Office NOC - Apply", "Municipal Corporation NOC - Apply", "Ward Zone NOC - Apply", "Tree Cutting NOC - Apply", "Others NOC(If Any) - Apply", "New NMA NOC"] },
     { name: "Payment History", component: "PaymentHistory", subMenu: [] },
     { name: "Registration Certificate", component: "RegistrationCertificate", subMenu: [] },
-    { name: "Certificate Form", component: "CertificateForm", subMenu: ["Resubmit", "Precheck Failed"] },
-    { name: "Certificate Request", component: "CertificateRequest", subMenu: ["Resubmit", "Precheck Failed"] },
+    { name: "Certificate Form", component: "CertificateForm", subMenu: ["Commencement Form", "Plinth Form", "Service Form", "Completion cum Occupancy"] },
+    { name: "Certificate Request", component: "CertificateRequest", subMenu: ["Plinth Certificate Request", "Service Certificate Request", "Occupency Certificate Request"] },
     { name: "Lift Completion Request", component: "LiftCompletionRequest", subMenu: [] },
 ];
 /**
@@ -69,6 +70,11 @@ const ArchDashboard = () => {
         setActiveComponent(menuItem.component);
       }
     };
+    const handleSubMenuClick = (subMenuItem) => {
+        // Show component
+        console.log(subMenuItem);
+        // setActiveComponent(subMenuItem.component);
+    };
   
     return (
       <div className="flex my-5 mx-24 bg-white">
@@ -87,17 +93,18 @@ const ArchDashboard = () => {
                   )}
                 </div>
                 {openMenus[menuItem.name] && (
-                  <div className="flex flex-col ml-4">
-                    {menuItem.subMenu.map((subItem, subIndex) => (
-                      <div
-                        key={subIndex}
-                        className="p-2 hover:bg-gray-600 cursor-pointer"
-                      >
-                        {subItem}
-                      </div>
-                    ))}
-                  </div>
-                )}
+                <div className="flex flex-col ml-4">
+                  {menuItem.subMenu.map((subItem, subIndex) => (
+                    <div
+                      key={subIndex}
+                      className="p-2 hover:bg-gray-600 cursor-pointer"
+                      onClick={() => handleSubMenuClick(subItem)}
+                    >
+                      {subItem}
+                    </div>
+                  ))}
+                </div>
+              )}
               </div>
             ))}
           </div>

@@ -1,17 +1,14 @@
 // src/Dashboard.js
 import React, { useState } from 'react';
-import { ReactTableComponent } from "../../components/components";
+import { ReactTableComponent } from "../components";
 import { useForm } from "react-hook-form";
 import { TextField, Button, Box } from '@mui/material';
 // import { LocalizationProvider, DatePicker } from '@mui/x-date-pickers';
 // import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import InputLabel from "@mui/material/InputLabel";
 
-const Files = () => {
+const StatisticsComponent = () => {
   const [submissionDate1, setSubmissionDate1] = useState('');
   const [submissionDate2, setSubmissionDate2] = useState('');
   const [myfilesrefno, setMyfilesrefno] = useState('');
@@ -19,6 +16,7 @@ const Files = () => {
 
   const schema = z.object({
   });
+
   const {
     register,
     handleSubmit,
@@ -28,27 +26,6 @@ const Files = () => {
   const [userType, setUserType] = useState("");
   const handleUserType = (event) => {
     setUserType(event.target.value);
-  };
-
-
-  const FromDateCheck = () => {
-    // Your logic for From Date check
-  };
-
-  const ToDateCheck = () => {
-    // Your logic for To Date check
-  };
-
-  const loadStatus = () => {
-    // Your logic for loading status
-  };
-
-  const clearStatId = () => {
-    setStatus('');
-  };
-
-  const search = (param) => {
-    // Your search logic
   };
 
   const tabledata = [
@@ -125,7 +102,7 @@ const Files = () => {
   return (
     <div className="w-full">
         <div className="text-left font-bold bg-white text-black p-4 border-b-2 border-black" id="FileStats">
-            <h1 className="text-[#2883dd] font-bold text-xl">My Files</h1>
+            <h1 className="text-[#2883dd] font-bold text-xl">Colony Verification Clearance Files</h1>
         </div>
       <div className="text-center font-bold bg-white text-black p-4" id="FileStats">
       <form onSubmit={handleSubmit()} className="flex flex-col gap-3">
@@ -175,31 +152,7 @@ const Files = () => {
           className="w-full"
           {...register("reference_no")}
           autoComplete="off"
-        />
-        <FormControl
-          variant="standard"
-          sx={{ minWidth: 175 }}
-          error={errors.user_type ? true : false}
-        >
-          <InputLabel id="user-type-input">Select</InputLabel>
-          <Select
-            {...register("user_type")}
-            labelId="user-type-input"
-            id="user-type"
-            onChange={handleUserType}
-            value={userType}
-            label="Select Type of User *"
-          >
-          </Select>
-        </FormControl>
-        <div className="flex justify-centre align-middle right-0">
-            <button
-            type="submit"
-            className=" bg-neutral-500 text-white w-1/2 py-1 rounded-md hover:bg-slate-500 hover:duration-700"
-            >
-            Search
-            </button>
-        </div>
+        />        
       </div>
       </form>
       </div>
@@ -210,4 +163,4 @@ const Files = () => {
   );
 };
 
-export default Files;
+export default StatisticsComponent;
