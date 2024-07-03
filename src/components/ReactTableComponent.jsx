@@ -1,11 +1,61 @@
-import { usePagination, useSortBy, useTable } from "react-table";
-import { IoPlaySkipBack, IoPlaySkipForward } from "react-icons/io5";
-import { RiPlayReverseFill, RiPlayFill } from "react-icons/ri";
-import { useMemo } from "react";
+import React, { useState, useMemo } from 'react';
+import { usePagination, useSortBy, useTable } from 'react-table';
+import { IoPlaySkipBack, IoPlaySkipForward } from 'react-icons/io5';
+import { RiPlayReverseFill, RiPlayFill } from 'react-icons/ri';
+import preview from "../assets/images/Preview.png";
+import comment from "../assets/images/comments1.png";
+import DemandCmt from "../assets/images/DemandCmt.png";
+import logfile from "../assets/images/logfile.png";
+import payment from "../assets/images/payment.png";
+import {
+  CitizenSearchForm,
+} from "../components/components";
+import MuiModal from "../components/muiComponents/MuiModal";
 
 export default function ReactTableComponent({ tableData, tableColumns }) {
   const tabledata = useMemo(() => tableData, []);
-  const tablecolumns = useMemo(() => tableColumns, []);
+  const [isHovered, setIsHovered] = useState(false);
+  const tablecolumns = useMemo(() => {
+    const actionColumn = {
+      Header: 'Action',
+      accessor: 'layout',
+      Cell: ({ row }) => (
+        <div className="flex gap-2">
+          <img
+            src={preview}
+            className={`w-full h-7 rounded-t-sm duration-1000 ${
+              isHovered ? "scale-125" : ""
+            }`}
+            onClick={() => topOpenFunction(row)}
+          />
+          <img
+            src={comment}
+            className={`w-full h-7 rounded-t-sm duration-1000 ${
+              isHovered ? "scale-125" : ""
+            }`}
+            onClick={() => handleComment(row)}
+          />
+
+          <img
+            src={DemandCmt}
+            className={`w-full h-7 rounded-t-sm duration-1000 ${
+              isHovered ? "scale-125" : ""
+            }`}
+            onClick={() => handleDemandCmt(row)}
+          />
+          <img
+            src={logfile}
+            className={`w-full h-7 rounded-t-sm duration-1000 ${
+              isHovered ? "scale-125" : ""
+            }`}
+            onClick={() => handleLog(row)}
+          />
+        </div>
+      ),
+    };
+
+    return [...tableColumns, actionColumn];
+  }, [tableColumns]);
 
   const {
     getTableProps,
@@ -26,8 +76,31 @@ export default function ReactTableComponent({ tableData, tableColumns }) {
     usePagination
   );
 
+  const handlePrewiew = (row) => {
+    // Handle edit action
+    console.log('preview:', row);
+  };
+
+  const handleComment = (row) => {
+    // Handle delete action
+    console.log('Comment:', row);
+  };
+    // Citizen Search Modal
+
+    const [citizenSearchModal, topOpenFunction] = useState(false);
+    const handleOpenCitizenSearchModal = () => setCitizenSearchModal(true);
+    const handleCloseCitizenSearchModal = () => setCitizenSearchModal(false);
+    
   return (
     <div className="border-[1px] border-slate-300 flex flex-col gap-5">
+      <MuiModal
+        open={citizenSearchModal}
+        handleClose={handleCloseCitizenSearchModal}
+        modelHeading={"Preview Input Data"}
+        className={"w-3/4"}
+      >
+        <CitizenSearchForm />
+      </MuiModal>
       <table className="w-full" {...getTableProps()}>
         <thead>
           {headerGroups.map((hg) => (
@@ -37,9 +110,9 @@ export default function ReactTableComponent({ tableData, tableColumns }) {
                   className="p-4 text-left bg-[#f3f3f3] font-medium text-sm border-r-[1px] border-l-[1px] border-b-[1px] border-slate-300"
                   {...column.getHeaderProps(column.getSortByToggleProps())}
                 >
-                  {column.render("Header")}
+                  {column.render('Header')}
                   {column.isSorted && (
-                    <span>{column.isSortedDesc ? " 🔼" : " 🔽"}</span>
+                    <span>{column.isSortedDesc ? ' 🔼' : ' 🔽'}</span>
                   )}
                 </th>
               ))}
@@ -60,7 +133,7 @@ export default function ReactTableComponent({ tableData, tableColumns }) {
                     className="p-4 text-center font-medium text-sm border-l-[1px] border-r-[1px] border-slate-300"
                     {...cell.getCellProps()}
                   >
-                    {cell.render("Cell")}
+                    {cell.render('Cell')}
                   </td>
                 ))}
               </tr>
@@ -72,7 +145,7 @@ export default function ReactTableComponent({ tableData, tableColumns }) {
       <div className="flex gap-4 ml-2 mb-2">
         <button
           className={`bg-[#f3f3f3] px-2 py-1 border-2 border-slate-300 ${
-            pageIndex === 0 ? "cursor-not-allowed text-slate-500" : ""
+            pageIndex === 0 ? 'cursor-not-allowed text-slate-500' : ''
           }`}
           disabled={pageIndex === 0}
           onClick={() => gotoPage(0)}
@@ -81,7 +154,7 @@ export default function ReactTableComponent({ tableData, tableColumns }) {
         </button>
         <button
           className={`bg-[#f3f3f3] px-2 py-1 border-2 border-slate-300 ${
-            !canPreviousPage ? "cursor-not-allowed text-slate-500" : ""
+            !canPreviousPage ? 'cursor-not-allowed text-slate-500' : ''
           }`}
           disabled={!canPreviousPage}
           onClick={previousPage}
@@ -93,7 +166,7 @@ export default function ReactTableComponent({ tableData, tableColumns }) {
         </span>
         <button
           className={`bg-[#f3f3f3] px-2 py-1 border-2 border-slate-300 ${
-            !canNextPage ? "cursor-not-allowed text-slate-500" : ""
+            !canNextPage ? 'cursor-not-allowed text-slate-500' : ''
           }`}
           disabled={!canNextPage}
           onClick={nextPage}
@@ -103,8 +176,8 @@ export default function ReactTableComponent({ tableData, tableColumns }) {
         <button
           className={`bg-[#f3f3f3] px-2 py-1 border-2 border-slate-300 ${
             pageIndex >= pageCount - 1
-              ? "cursor-not-allowed text-slate-500"
-              : ""
+              ? 'cursor-not-allowed text-slate-500'
+              : ''
           }`}
           disabled={pageIndex >= pageCount - 1}
           onClick={() => gotoPage(pageCount - 1)}

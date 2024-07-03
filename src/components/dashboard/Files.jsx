@@ -10,6 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
+import MuiModal from "../../components/muiComponents/MuiModal";
 
 const Files = (props) => {
   const [submissionDate1, setSubmissionDate1] = useState('');
@@ -117,7 +118,7 @@ const Files = (props) => {
     { Header: "Applicant Name", accessor: "ApplicantName" },
     { Header: "Status", accessor: "ArchVisibleStatus" },
     { Header: "Applicant Address", accessor: "ApplicantAddress" },
-    { Header: "Action", accessor: "layout" },
+    //{ Header: "Action", accessor: "layout" },
   ];
 
   return (
