@@ -204,7 +204,7 @@ const Files = (props) => {
           </div>
         </form>
       </div>
-      <ReactTableComponent tableData={tabledata} tableColumns={tablecolumns} />
+      <ReactTableComponent tableData={tabledata} tableColumns={tablecolumns} isAction={true} />
     </div>
   );
 };

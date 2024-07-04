@@ -6,56 +6,55 @@ import preview from "../assets/images/Preview.png";
 import comment from "../assets/images/comments1.png";
 import DemandCmt from "../assets/images/DemandCmt.png";
 import logfile from "../assets/images/logfile.png";
-import payment from "../assets/images/payment.png";
 import {
   CitizenSearchForm,
 } from "../components/components";
 import MuiModal from "../components/muiComponents/MuiModal";
 
-export default function ReactTableComponent({ tableData, tableColumns }) {
-  const tabledata = useMemo(() => tableData, []);
+export default function ReactTableComponent({ tableData, tableColumns, isAction }) {
+  const tabledata = useMemo(() => tableData, [tableData]);
   const [isHovered, setIsHovered] = useState(false);
+  const [citizenSearchModal, setCitizenSearchModal] = useState(false);
+
   const tablecolumns = useMemo(() => {
-    const actionColumn = {
-      Header: 'Action',
-      accessor: 'layout',
-      Cell: ({ row }) => (
-        <div className="flex gap-2">
-          <img
-            src={preview}
-            className={`w-full h-7 rounded-t-sm duration-1000 ${
-              isHovered ? "scale-125" : ""
-            }`}
-            onClick={() => topOpenFunction(row)}
-          />
-          <img
-            src={comment}
-            className={`w-full h-7 rounded-t-sm duration-1000 ${
-              isHovered ? "scale-125" : ""
-            }`}
-            onClick={() => handleComment(row)}
-          />
+    if (isAction) {
+      const actionColumn = {
+        Header: 'Action',
+        accessor: 'action',
+        Cell: ({ row }) => (
+          <div className="flex gap-2">
+            <img
+              src={preview}
+              className={`w-full h-6 rounded-t-sm duration-1000 ${isHovered ? "scale-125" : ""}`}
+              onClick={() => topOpenFunction(row)}
+              alt="Preview"
+            />
+            <img
+              src={comment}
+              className={`w-full h-6 rounded-t-sm duration-1000 ${isHovered ? "scale-125" : ""}`}
+              onClick={() => handleComment(row)}
+              alt="Comment"
+            />
+            <img
+              src={DemandCmt}
+              className={`w-full h-6 rounded-t-sm duration-1000 ${isHovered ? "scale-125" : ""}`}
+              onClick={() => handleDemandCmt(row)}
+              alt="Demand Comment"
+            />
+            <img
+              src={logfile}
+              className={`w-full h-6 rounded-t-sm duration-1000 ${isHovered ? "scale-125" : ""}`}
+              onClick={() => handleLog(row)}
+              alt="Log File"
+            />
+          </div>
+        ),
+      };
 
-          <img
-            src={DemandCmt}
-            className={`w-full h-7 rounded-t-sm duration-1000 ${
-              isHovered ? "scale-125" : ""
-            }`}
-            onClick={() => handleDemandCmt(row)}
-          />
-          <img
-            src={logfile}
-            className={`w-full h-7 rounded-t-sm duration-1000 ${
-              isHovered ? "scale-125" : ""
-            }`}
-            onClick={() => handleLog(row)}
-          />
-        </div>
-      ),
-    };
-
-    return [...tableColumns, actionColumn];
-  }, [tableColumns]);
+      return [...tableColumns, actionColumn];
+    }
+    return tableColumns;
+  }, [tableColumns, isAction, isHovered]);
 
   const {
     getTableProps,
@@ -77,20 +76,24 @@ export default function ReactTableComponent({ tableData, tableColumns }) {
   );
 
   const handlePrewiew = (row) => {
-    // Handle edit action
     console.log('preview:', row);
   };
 
   const handleComment = (row) => {
-    // Handle delete action
     console.log('Comment:', row);
   };
-    // Citizen Search Modal
 
-    const [citizenSearchModal, topOpenFunction] = useState(false);
-    const handleOpenCitizenSearchModal = () => setCitizenSearchModal(true);
-    const handleCloseCitizenSearchModal = () => setCitizenSearchModal(false);
-    
+  const handleDemandCmt = (row) => {
+    console.log('Demand Comment:', row);
+  };
+
+  const handleLog = (row) => {
+    console.log('Log:', row);
+  };
+
+  const handleOpenCitizenSearchModal = () => setCitizenSearchModal(true);
+  const handleCloseCitizenSearchModal = () => setCitizenSearchModal(false);
+
   return (
     <div className="border-[1px] border-slate-300 flex flex-col gap-5">
       <MuiModal
@@ -144,18 +147,14 @@ export default function ReactTableComponent({ tableData, tableColumns }) {
       <span className="ml-2">Total Items: 391</span>
       <div className="flex gap-4 ml-2 mb-2">
         <button
-          className={`bg-[#f3f3f3] px-2 py-1 border-2 border-slate-300 ${
-            pageIndex === 0 ? 'cursor-not-allowed text-slate-500' : ''
-          }`}
+          className={`bg-[#f3f3f3] px-2 py-1 border-2 border-slate-300 ${pageIndex === 0 ? 'cursor-not-allowed text-slate-500' : ''}`}
           disabled={pageIndex === 0}
           onClick={() => gotoPage(0)}
         >
           <IoPlaySkipBack />
         </button>
         <button
-          className={`bg-[#f3f3f3] px-2 py-1 border-2 border-slate-300 ${
-            !canPreviousPage ? 'cursor-not-allowed text-slate-500' : ''
-          }`}
+          className={`bg-[#f3f3f3] px-2 py-1 border-2 border-slate-300 ${!canPreviousPage ? 'cursor-not-allowed text-slate-500' : ''}`}
           disabled={!canPreviousPage}
           onClick={previousPage}
         >
@@ -165,20 +164,14 @@ export default function ReactTableComponent({ tableData, tableColumns }) {
           {pageIndex + 1} / {pageCount}
         </span>
         <button
-          className={`bg-[#f3f3f3] px-2 py-1 border-2 border-slate-300 ${
-            !canNextPage ? 'cursor-not-allowed text-slate-500' : ''
-          }`}
+          className={`bg-[#f3f3f3] px-2 py-1 border-2 border-slate-300 ${!canNextPage ? 'cursor-not-allowed text-slate-500' : ''}`}
           disabled={!canNextPage}
           onClick={nextPage}
         >
           <RiPlayFill />
         </button>
         <button
-          className={`bg-[#f3f3f3] px-2 py-1 border-2 border-slate-300 ${
-            pageIndex >= pageCount - 1
-              ? 'cursor-not-allowed text-slate-500'
-              : ''
-          }`}
+          className={`bg-[#f3f3f3] px-2 py-1 border-2 border-slate-300 ${pageIndex >= pageCount - 1 ? 'cursor-not-allowed text-slate-500' : ''}`}
           disabled={pageIndex >= pageCount - 1}
           onClick={() => gotoPage(pageCount - 1)}
         >
