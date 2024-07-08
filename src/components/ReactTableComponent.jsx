@@ -96,14 +96,14 @@ export default function ReactTableComponent({ tableData, tableColumns, isAction 
 
   return (
     <div className="border-[1px] border-slate-300 flex flex-col gap-5">
-      <MuiModal
+      {/* <MuiModal
         open={citizenSearchModal}
         handleClose={handleCloseCitizenSearchModal}
         modelHeading={"Preview Input Data"}
         className={"w-3/4"}
       >
         <CitizenSearchForm />
-      </MuiModal>
+      </MuiModal> */}
       <table className="w-full" {...getTableProps()}>
         <thead>
           {headerGroups.map((hg) => (
