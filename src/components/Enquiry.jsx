@@ -14,21 +14,22 @@ function Enquiry({
     <div className="flex flex-col gap-2 text-white w-56">
       <div
         onClick={topOpenFunction}
-        className={`hover:cursor-pointer overflow-hidden`}
+        className={`hover:cursor-pointer overflow-hidden rounded`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div>
+        <div
+          className=" bg-white border-dashed border-cyan-600 border-2 flex flex-col items-center gap-2 p-8 
+        rounded-full"
+        >
           <img
             src={image}
-            className={`w-full h-36 rounded-t-sm duration-1000 ${
+            className={` w-16 m-auto rounded-t-sm duration-1000 ${
               isHovered ? "scale-125" : ""
             }`}
           />
-        </div>
-        <div className="bg-blue-base flex flex-col items-center gap-2 py-5 px-5 rounded-b-sm h-28">
-          <p className="text-xl">{topHeading}</p>
-          <p className="text-center text-sm">{topSubheading}</p>
+          <p className="text-xl text-cyan-700">{topHeading}</p>
+          <p className="text-center text-sm text-gray-700">{topSubheading}</p>
         </div>
       </div>
       <div
