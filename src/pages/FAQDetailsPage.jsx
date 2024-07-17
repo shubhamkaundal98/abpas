@@ -5,7 +5,7 @@ export default function FAQDetails() {
   const navigate = useNavigate();
 
   return (
-    <div className="h-screen flex flex-col items-center justify-center gap-5">
+    <div className="h-screen flex flex-col items-center rounded-full justify-center gap-5">
       <iframe src={bvnRule} width="800" height="600"></iframe>
       <div className="w-4/6 flex justify-end">
         <button
